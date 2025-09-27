@@ -1,6 +1,14 @@
 {
+  "name": "fp-ncc",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
   "dependencies": {
-    "@azure/storage-blob": "^12.27.0",
-    "multer": "^2.0.2"
-  }
+    "@azure/functions": "^4.0.0"
+  },
+  "devDependencies": {},
+  "main": "src/{index.js,functions/*.js}"
 }

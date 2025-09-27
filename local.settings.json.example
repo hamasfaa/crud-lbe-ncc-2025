@@ -1,0 +1,15 @@
+// TODO: Ubah variabel sesuai dengan kebutuhan kalian untuk testing lokal (OPSIONAL)
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "DB_HOST": "NAMA_HOST_DB",
+    "DB_USER": "NAMA_USER_DB",
+    "DB_PASSWORD": "PASSWORD_DB",
+    "DB_NAME": "NAMA_DB",
+    "DB_PORT": "PORT_DB",
+    "AZURE_STORAGE_CONNECTION_STRING": "[URL_KONEKSI_AZURE_STORAGE]",
+    "BLOB_CONTAINER_NAME": "[NAMA_BLOB]"
+  }
+}
