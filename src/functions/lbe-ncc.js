@@ -74,16 +74,15 @@ app.http('httpTrigger1', {
 
 
                     if (result.rows.length === 0) {
-                        // TODO: Handle return jika user tidak ditemukan
-
+                        // TODO: Handle return jika user tidak ditemukan dengan pesan error
                     }
 
-                    // TODO: Return data user berdasarkan ID
+                    // TODO: Return data user berdasarkan ID dengan message success
                 } else {
                     const result = await client.query('SELECT id, nama, foto_url FROM users ORDER BY id ASC');
                     client.release();
 
-                    // TODO: Return semua data user
+                    // TODO: Return semua data user dengan message success dan total data
                 }
 
             } else if (method === 'POST') {
@@ -96,7 +95,7 @@ app.http('httpTrigger1', {
 
                     if (!nama) {
                         client.release();
-                        // TODO: Handle return jika nama tidak diisi
+                        // TODO: Handle return jika nama tidak diisi dengan pesan error
                     }
 
                     let fotoUrl = null;
@@ -112,14 +111,14 @@ app.http('httpTrigger1', {
                     );
                     client.release();
 
-                    // TODO: Return data user yang baru ditambahkan
+                    // TODO: Return data user yang baru ditambahkan dengan message success
                 } else {
                     const requestBody = await request.json();
                     const { nama } = requestBody;
 
                     if (!nama) {
                         client.release();
-                        // TODO: Handle return jika nama tidak diisi
+                        // TODO: Handle return jika nama tidak diisi dengan pesan error
                     }
 
                     const result = await client.query(
@@ -137,13 +136,13 @@ app.http('httpTrigger1', {
 
                 if (!userId) {
                     client.release();
-                    // TODO: Handle return jika ID tidak diisi
+                    // TODO: Handle return jika ID tidak diisi dengan pesan error
                 }
 
                 const currentUser = await client.query('SELECT foto_url FROM users WHERE id = $1', [userId]);
                 if (currentUser.rows.length === 0) {
                     client.release();
-                    // TODO: Handle return jika user tidak ditemukan
+                    // TODO: Handle return jika user tidak ditemukan dengan pesan error
                 }
 
                 let nama, fotoUrl = currentUser.rows[0].foto_url;
@@ -168,7 +167,7 @@ app.http('httpTrigger1', {
 
                 if (!nama) {
                     client.release();
-                    // TODO: Handle return jika nama tidak diisi
+                    // TODO: Handle return jika nama tidak diisi dengan pesan error
                 }
 
                 const result = await client.query(
@@ -177,14 +176,14 @@ app.http('httpTrigger1', {
                 );
                 client.release();
 
-                // TODO: Return data user yang telah diperbarui
+                // TODO: Return data user yang telah diperbarui dengan message success
 
             } else if (method === 'DELETE') {
                 const userId = request.query.get('id');
 
                 if (!userId) {
                     client.release();
-                    // TODO: Handle return jika ID tidak diisi
+                    // TODO: Handle return jika ID tidak diisi dengan pesan error
                 }
 
                 const result = await client.query(
@@ -194,7 +193,7 @@ app.http('httpTrigger1', {
 
                 if (result.rows.length === 0) {
                     client.release();
-                    // TODO: Handle return jika user tidak ditemukan
+                    // TODO: Handle return jika user tidak ditemukan dengan pesan error
                 }
 
                 if (result.rows[0].foto_url) {
@@ -203,7 +202,7 @@ app.http('httpTrigger1', {
 
                 client.release();
 
-                // TODO: Return data user yang telah dihapus
+                // TODO: Return data user yang telah dihapus dengan message success
             }
 
         } catch (error) {
