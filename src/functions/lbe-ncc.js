@@ -1,7 +1,6 @@
 const { app } = require('@azure/functions');
 const { Pool } = require('pg');
 const { BlobServiceClient } = require('@azure/storage-blob');
-const multer = require('multer');
 
 // TODO: Masukkan konfigurasi database PostgreSQL kalian melalui environment Azure Functions
 const pool = new Pool({
